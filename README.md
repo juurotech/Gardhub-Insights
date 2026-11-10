@@ -48,6 +48,8 @@ Supported categories are `Teknolojiyad`, `Siyaasad`, `Amni`, `Caafimaad`, and `D
 
 ## Deploy to Vercel
 
-Push this repository to GitHub, import it in Vercel, and configure `MONGO_URI`, `ADMIN_KEY`, and `CLIENT_ORIGIN` in the project environment variables. Vercel uses `vercel.json` to build the Vite client and route API requests through the Express serverless function. Use a hosted MongoDB deployment for production; the local MongoDB URI is intended for development.
+For the full-stack deployment, import this repository in Vercel and keep the project Root Directory at the repository root (`.`). The root `vercel.json` installs root and client dependencies, runs `npm run build`, publishes `client/dist`, and routes `/api` requests through the Express serverless function. Configure `MONGO_URI`, `ADMIN_KEY`, and `CLIENT_ORIGIN` in the project environment variables, and use a hosted MongoDB deployment for production.
 
-For GitHub source control, run `git init`, add the GitHub repository as `origin`, then commit and push using your preferred workflow. Do not commit `.env` or its secrets.
+For a frontend-only deployment, Vercel may use `client` as the Root Directory; use `npm install`, `npm run build`, and `dist` as the output directory. In that setup, the root `/api` serverless function is outside the deployment and must be hosted separately for article and admin API features to work.
+
+This repository is already connected to GitHub. Commit and push changes from the existing repository; never commit `.env` or its secrets.

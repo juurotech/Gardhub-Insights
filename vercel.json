@@ -1,4 +1,5 @@
 {
+  "installCommand": "npm ci && npm --prefix client ci",
   "buildCommand": "npm run build",
   "outputDirectory": "client/dist",
   "functions": {
