@@ -50,6 +50,6 @@ Supported categories are `Teknolojiyad`, `Siyaasad`, `Amni`, `Caafimaad`, and `D
 
 For the full-stack deployment, import this repository in Vercel and keep the project Root Directory at the repository root (`.`). The root `vercel.json` installs root and client dependencies, runs `npm run build`, publishes `client/dist`, and routes `/api` requests through the Express serverless function. Configure `MONGO_URI`, `ADMIN_KEY`, and `CLIENT_ORIGIN` in the project environment variables, and use a hosted MongoDB deployment for production.
 
-For a frontend-only deployment, Vercel may use `client` as the Root Directory; use `npm install`, `npm run build`, and `dist` as the output directory. In that setup, the root `/api` serverless function is outside the deployment and must be hosted separately for article and admin API features to work.
+For a frontend-only deployment, set Vercel's Root Directory to `client`. `client/vercel.json` configures `npm run build`, publishes `dist`, and routes SPA paths to `index.html`. In that setup, the root `/api` serverless function is outside the deployment and must be hosted separately for article and admin API features to work.
 
 This repository is already connected to GitHub. Commit and push changes from the existing repository; never commit `.env` or its secrets.
